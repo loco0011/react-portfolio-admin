@@ -14,12 +14,12 @@ function PrivateRoute({ children }: { children: React.ReactNode }) {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   if (!isAuthenticated) {
-    return <Redirect to="/admin" />;
+    return <Redirect to="/" />;
   }
 
   // Prevent unauthorized access to admin routes
   if (location.pathname.startsWith('/admin/') && !isAuthenticated) {
-    return <Redirect to="/admin" />;
+    return <Redirect to="/" />;
   }
 
   return <>{children}</>;
